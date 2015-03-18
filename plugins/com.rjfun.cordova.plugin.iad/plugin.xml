@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+           id="com.rjfun.cordova.plugin.iad"
+      version="0.1.8">
+      
+    <name>iAd</name>
+	<description>Apple iAd support (iOS only) to your cordova apps or games to earn more revenue</description>
+	<author>Liming Xie</author>
+	<license>MIT</license>    
+<keywords>ad,iad</keywords>
+    <repo>https://github.com/floatinghotpot/cordova-plugin-iad.git</repo>
+    <issue>https://github.com/floatinghotpot/cordova-plugin-iad/issues</issue>
+
+	<engines>
+	    <engine name="cordova" version=">=3.0" />
+	</engines>
+
+    <js-module src="www/iAd.js" name="iAd">
+        <clobbers target="window.plugins.iAd" />
+    </js-module>
+
+     <!-- ios -->
+     <platform name="ios">    
+         <config-file target="config.xml" parent="/*">
+             <feature name="iAd">
+                 <param name="ios-package" value="CDViAd" />
+             </feature>
+         </config-file>
+         
+         <header-file src="src/ios/CDViAd.h" />
+         <source-file src="src/ios/CDViAd.m" />
+
+ 	     <framework src="iAd.framework" weak="true"/>
+	</platform>
+          
+</plugin>
